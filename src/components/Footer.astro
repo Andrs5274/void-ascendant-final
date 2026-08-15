@@ -1,0 +1,76 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer
+  class="border-t border-white/10 bg-black px-6 py-10 text-white"
+>
+  <div
+    class="mx-auto flex max-w-7xl flex-col gap-6 text-center md:flex-row md:items-center md:justify-between md:text-left"
+  >
+    <div>
+      <a
+        href="/#inicio"
+        class="text-xl font-black tracking-widest"
+      >
+        VOID
+        <span class="text-green-400">
+          ASCENDANT
+        </span>
+      </a>
+
+      <p class="mt-2 text-sm text-zinc-500">
+        El vacío te está llamando.
+      </p>
+    </div>
+
+    <nav
+      class="flex flex-wrap justify-center gap-5 text-sm text-zinc-400"
+    >
+      <a
+        href="/#agentes"
+        class="transition hover:text-green-400"
+      >
+        Agentes
+      </a>
+
+      <a
+        href="/#modos"
+        class="transition hover:text-green-400"
+      >
+        Modos
+      </a>
+
+      <a
+        href="/#recompensas"
+        class="transition hover:text-green-400"
+      >
+        Recompensas
+      </a>
+
+      <a
+        href="/#faq"
+        class="transition hover:text-green-400"
+      >
+        FAQ
+      </a>
+
+      <a
+        href="/politica-privacidad"
+        class="transition hover:text-green-400"
+      >
+        Política de privacidad
+      </a>
+    </nav>
+
+    <div class="text-sm text-zinc-500">
+      <p>
+        © {currentYear} Void Ascendant
+      </p>
+
+      <p class="mt-1">
+        Proyecto desarrollado por Andrés Rodríguez
+      </p>
+    </div>
+  </div>
+</footer>

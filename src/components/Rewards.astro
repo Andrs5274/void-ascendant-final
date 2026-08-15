@@ -1,0 +1,105 @@
+---
+type Reward = {
+  title: string;
+  description: string;
+  requirement: string;
+};
+
+const rewards: Reward[] = [
+  {
+    title: "CRÉDITOS DE INICIO",
+    description:
+      "Recibe recursos especiales para comenzar tu aventura y mejorar a tus primeros agentes.",
+    requirement: "PRERREGISTRO",
+  },
+  {
+    title: "INSIGNIA DEL VACÍO",
+    description:
+      "Una insignia exclusiva para los jugadores que formen parte de la primera generación de Void Ascendant.",
+    requirement: "25K REGISTROS",
+  },
+  {
+    title: "SUMINISTROS ÉLITE",
+    description:
+      "Obtén materiales especiales, créditos adicionales y objetos de mejora para tus agentes.",
+    requirement: "50K REGISTROS",
+  },
+  {
+    title: "RECOMPENSA LEGENDARIA",
+    description:
+      "Desbloquea una recompensa exclusiva cuando la comunidad alcance el objetivo máximo de prerregistros.",
+    requirement: "100K REGISTROS",
+  },
+];
+---
+
+<section
+  id="recompensas"
+  class="overflow-hidden bg-zinc-950 px-4 py-20 text-white sm:px-6 sm:py-24"
+>
+  <div class="mx-auto w-full max-w-7xl min-w-0">
+
+    <div class="mb-12 text-center sm:mb-14">
+      <p
+        class="mb-3 text-xs font-bold tracking-[0.3em] text-green-400 sm:text-sm sm:tracking-[0.4em]"
+      >
+        OBJETIVOS DE LA COMUNIDAD
+      </p>
+
+      <h2
+        class="break-words text-4xl font-black sm:text-5xl lg:text-6xl"
+      >
+        RECOMPENSAS
+      </h2>
+
+      <p
+        class="mx-auto mt-5 max-w-2xl text-sm leading-7 text-zinc-400 sm:text-base"
+      >
+        Cuantos más jugadores se unan al prerregistro,
+        mejores serán las recompensas disponibles para toda la comunidad.
+      </p>
+    </div>
+
+    <div
+      class="grid min-w-0 grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4"
+    >
+      {
+        rewards.map((reward, index) => (
+          <article
+            class="group relative min-w-0 overflow-hidden rounded-2xl border border-white/10 bg-black p-6 transition duration-300 hover:-translate-y-2 hover:border-green-400 sm:p-7"
+          >
+            <div
+              class="mb-7 flex h-11 w-11 items-center justify-center rounded-lg bg-green-400 text-sm font-black text-black sm:mb-8 sm:h-12 sm:w-12"
+            >
+              {String(index + 1).padStart(2, "0")}
+            </div>
+
+            <p
+              class="mb-3 break-words text-xs font-bold tracking-[0.18em] text-green-400 sm:tracking-[0.25em]"
+            >
+              {reward.requirement}
+            </p>
+
+            <h3
+              class="break-words text-lg font-black leading-tight sm:text-xl"
+            >
+              {reward.title}
+            </h3>
+
+            <p
+              class="mt-4 break-words text-sm leading-7 text-zinc-400 sm:text-base"
+            >
+              {reward.description}
+            </p>
+
+            <div
+              class="absolute bottom-0 left-0 h-1 w-0 bg-green-400 transition-all duration-300 group-hover:w-full"
+            >
+            </div>
+          </article>
+        ))
+      }
+    </div>
+
+  </div>
+</section>

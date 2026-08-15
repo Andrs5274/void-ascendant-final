@@ -1,0 +1,87 @@
+---
+type FaqItem = {
+  question: string;
+  answer: string;
+};
+
+const faqItems: FaqItem[] = [
+  {
+    question: "¿Cuándo se lanzará Void Ascendant?",
+    answer:
+      "La fecha oficial de lanzamiento será anunciada próximamente. Los usuarios prerregistrados recibirán las novedades primero.",
+  },
+  {
+    question: "¿En qué plataformas estará disponible?",
+    answer:
+      "Void Ascendant está planeado para PC, PlayStation y Xbox.",
+  },
+  {
+    question: "¿El prerregistro tiene algún costo?",
+    answer:
+      "No. El prerregistro es completamente gratuito y permite acceder a noticias, recompensas y futuras pruebas.",
+  },
+  {
+    question: "¿Las recompensas son para todos?",
+    answer:
+      "Sí. Las recompensas comunitarias se desbloquearán conforme aumente el número total de prerregistros.",
+  },
+];
+---
+
+<section
+  id="faq"
+  class="bg-zinc-950 px-6 py-24 text-white"
+>
+  <div class="mx-auto max-w-4xl">
+    <div class="mb-14 text-center">
+      <p
+        class="mb-3 text-sm font-bold tracking-[0.4em] text-green-400"
+      >
+        INFORMACIÓN
+      </p>
+
+      <h2 class="text-4xl font-black sm:text-6xl">
+        PREGUNTAS FRECUENTES
+      </h2>
+
+      <p
+        class="mx-auto mt-5 max-w-2xl leading-7 text-zinc-400"
+      >
+        Consulta las dudas más comunes sobre Void Ascendant
+        y su proceso de prerregistro.
+      </p>
+    </div>
+
+    <div class="space-y-4">
+      {
+        faqItems.map((item, index) => (
+          <article
+            class="rounded-xl border border-white/10 bg-black p-6 transition hover:border-green-400/50"
+          >
+            <div class="flex gap-4">
+              <span
+                class="font-black text-green-400"
+              >
+                {String(index + 1).padStart(2, "0")}
+              </span>
+
+              <div>
+                <h3
+                  class="text-lg font-bold"
+                >
+                  {item.question}
+                </h3>
+
+                <p
+                  class="mt-3 leading-7 text-zinc-400"
+                >
+                  {item.answer}
+                </p>
+              </div>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
