@@ -62,34 +62,39 @@ const agents: Agent[] = [
 ];
 
 export default function Agents() {
-  const [selectedId, setSelectedId] = useState<AgentId>("anby");
+  const [selectedId, setSelectedId] =
+    useState<AgentId>("anby");
 
   const selectedAgent =
-    agents.find((agent) => agent.id === selectedId) ?? agents[0];
+    agents.find((agent) => agent.id === selectedId) ??
+    agents[0];
 
   return (
     <section
       id="agentes"
-      className="min-h-screen bg-zinc-950 px-6 py-24 text-white"
+      className="overflow-hidden bg-zinc-950 px-4 py-20 text-white sm:px-6 sm:py-24"
     >
-      <div className="mx-auto max-w-7xl">
-        <div className="mb-12 text-center">
-          <p className="mb-3 text-sm font-bold tracking-[0.4em] text-green-400">
+      <div className="mx-auto w-full max-w-7xl min-w-0">
+
+        <div className="mb-10 text-center sm:mb-12">
+          <p className="mb-3 text-xs font-bold tracking-[0.3em] text-green-400 sm:text-sm sm:tracking-[0.4em]">
             ELIGE TU COMBATIENTE
           </p>
 
-          <h2 className="text-4xl font-black sm:text-6xl">
+          <h2 className="break-words text-4xl font-black sm:text-5xl lg:text-6xl">
             AGENTES
           </h2>
 
-          <p className="mx-auto mt-4 max-w-2xl text-zinc-400">
+          <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-zinc-400 sm:text-base">
             Cada agente cuenta con atributos y capacidades diferentes.
             Selecciona uno para conocer sus estadísticas.
           </p>
         </div>
 
-        <div className="grid gap-10 lg:grid-cols-2">
-          <div className="grid grid-cols-2 gap-4">
+        <div className="grid min-w-0 grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-10">
+
+          {/* TARJETAS */}
+          <div className="grid min-w-0 grid-cols-1 gap-4 sm:grid-cols-2">
             {agents.map((agent) => (
               <AgentCard
                 key={agent.id}
@@ -102,24 +107,25 @@ export default function Agents() {
             ))}
           </div>
 
-          <article className="flex flex-col justify-center rounded-2xl border border-white/10 bg-white/5 p-8">
-            <p className="text-sm font-bold tracking-[0.3em] text-green-400">
+          {/* INFORMACIÓN */}
+          <article className="min-w-0 rounded-2xl border border-white/10 bg-white/5 p-5 sm:p-8 lg:flex lg:flex-col lg:justify-center">
+            <p className="break-words text-xs font-bold tracking-[0.25em] text-green-400 sm:text-sm sm:tracking-[0.3em]">
               AGENTE SELECCIONADO
             </p>
 
-            <h3 className="mt-3 text-5xl font-black">
+            <h3 className="mt-3 break-words text-4xl font-black sm:text-5xl">
               {selectedAgent.name}
             </h3>
 
-            <p className="mt-2 text-lg text-green-400">
+            <p className="mt-2 break-words text-base text-green-400 sm:text-lg">
               {selectedAgent.role}
             </p>
 
-            <p className="mt-6 leading-7 text-zinc-400">
+            <p className="mt-6 break-words text-sm leading-7 text-zinc-400 sm:text-base">
               {selectedAgent.description}
             </p>
 
-            <div className="mt-10 space-y-6">
+            <div className="mt-8 min-w-0 space-y-6 sm:mt-10">
               <Stat
                 label="ATAQUE"
                 value={selectedAgent.attack}
@@ -136,6 +142,7 @@ export default function Agents() {
               />
             </div>
           </article>
+
         </div>
       </div>
     </section>
@@ -149,16 +156,21 @@ type StatProps = {
 
 function Stat({ label, value }: StatProps) {
   return (
-    <div>
-      <div className="mb-2 flex justify-between text-sm font-bold">
+    <div className="min-w-0">
+      <div className="mb-2 flex items-center justify-between gap-4 text-sm font-bold">
         <span>{label}</span>
-        <span>{value}%</span>
+
+        <span className="shrink-0">
+          {value}%
+        </span>
       </div>
 
-      <div className="h-2 overflow-hidden rounded-full bg-white/10">
+      <div className="h-2 w-full overflow-hidden rounded-full bg-white/10">
         <div
           className="h-full rounded-full bg-green-400"
-          style={{ width: `${value}%` }}
+          style={{
+            width: `${Math.min(value, 100)}%`,
+          }}
         />
       </div>
     </div>

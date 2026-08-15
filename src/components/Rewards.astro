@@ -35,57 +35,59 @@ const rewards: Reward[] = [
 
 <section
   id="recompensas"
-  class="bg-zinc-950 px-6 py-24 text-white"
+  class="overflow-hidden bg-zinc-950 px-4 py-20 text-white sm:px-6 sm:py-24"
 >
-  <div class="mx-auto max-w-7xl">
+  <div class="mx-auto w-full max-w-7xl min-w-0">
 
-    <div class="mb-14 text-center">
+    <div class="mb-12 text-center sm:mb-14">
       <p
-        class="mb-3 text-sm font-bold tracking-[0.4em] text-green-400"
+        class="mb-3 text-xs font-bold tracking-[0.3em] text-green-400 sm:text-sm sm:tracking-[0.4em]"
       >
         OBJETIVOS DE LA COMUNIDAD
       </p>
 
       <h2
-        class="text-4xl font-black sm:text-6xl"
+        class="break-words text-4xl font-black sm:text-5xl lg:text-6xl"
       >
         RECOMPENSAS
       </h2>
 
       <p
-        class="mx-auto mt-5 max-w-2xl leading-7 text-zinc-400"
+        class="mx-auto mt-5 max-w-2xl text-sm leading-7 text-zinc-400 sm:text-base"
       >
         Cuantos más jugadores se unan al prerregistro,
         mejores serán las recompensas disponibles para toda la comunidad.
       </p>
     </div>
 
-    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+    <div
+      class="grid min-w-0 grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4"
+    >
       {
         rewards.map((reward, index) => (
           <article
-            class="group relative overflow-hidden rounded-2xl border border-white/10 bg-black p-7 transition duration-300 hover:-translate-y-2 hover:border-green-400"
+            class="group relative min-w-0 overflow-hidden rounded-2xl border border-white/10 bg-black p-6 transition duration-300 hover:-translate-y-2 hover:border-green-400 sm:p-7"
           >
             <div
-              class="mb-8 flex h-12 w-12 items-center justify-center rounded-lg bg-green-400 font-black text-black"
+              class="mb-7 flex h-11 w-11 items-center justify-center rounded-lg bg-green-400 text-sm font-black text-black sm:mb-8 sm:h-12 sm:w-12"
             >
               {String(index + 1).padStart(2, "0")}
             </div>
 
             <p
-              class="mb-3 text-xs font-bold tracking-[0.25em] text-green-400"
+              class="mb-3 break-words text-xs font-bold tracking-[0.18em] text-green-400 sm:tracking-[0.25em]"
             >
               {reward.requirement}
             </p>
 
             <h3
-              class="text-xl font-black"
+              class="break-words text-lg font-black leading-tight sm:text-xl"
             >
               {reward.title}
             </h3>
 
             <p
-              class="mt-4 leading-7 text-zinc-400"
+              class="mt-4 break-words text-sm leading-7 text-zinc-400 sm:text-base"
             >
               {reward.description}
             </p>

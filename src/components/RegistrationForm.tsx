@@ -33,6 +33,7 @@ export default function RegistrationForm() {
     formState: { errors },
   } = useForm<RegistrationData>({
     resolver: zodResolver(registrationSchema),
+
     defaultValues: {
       fullName: "",
       email: "",
@@ -55,39 +56,40 @@ export default function RegistrationForm() {
   return (
     <section
       id="preregistro"
-      className="bg-black px-6 py-24 text-white"
+      className="overflow-hidden bg-black px-4 py-20 text-white sm:px-6 sm:py-24"
     >
-      <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-2">
+      <div className="mx-auto grid w-full max-w-6xl min-w-0 grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-12">
 
-        <div className="flex flex-col justify-center">
-          <p className="mb-3 text-sm font-bold tracking-[0.4em] text-green-400">
+        {/* TEXTO */}
+        <div className="min-w-0 flex flex-col justify-center">
+          <p className="mb-3 break-words text-xs font-bold tracking-[0.3em] text-green-400 sm:text-sm sm:tracking-[0.4em]">
             ÚNETE AL VACÍO
           </p>
 
-          <h2 className="text-4xl font-black sm:text-6xl">
+          <h2 className="break-words text-4xl font-black leading-none sm:text-5xl lg:text-6xl">
             PRERREGISTRO
           </h2>
 
-          <p className="mt-5 max-w-xl leading-7 text-zinc-400">
+          <p className="mt-5 max-w-xl break-words text-sm leading-7 text-zinc-400 sm:text-base">
             Regístrate para recibir noticias, recompensas exclusivas
             y acceso a futuras pruebas de Void Ascendant.
           </p>
 
-          <div className="mt-8 border-l-2 border-green-400 pl-5">
-            <p className="text-sm leading-6 text-zinc-400">
+          <div className="mt-8 max-w-xl border-l-2 border-green-400 pl-4 sm:pl-5">
+            <p className="break-words text-sm leading-6 text-zinc-400">
               Tu registro ayudará a desbloquear recompensas globales
               para toda la comunidad.
             </p>
           </div>
         </div>
 
+        {/* FORMULARIO */}
         <form
           onSubmit={handleSubmit(onSubmit)}
           noValidate
-          className="rounded-2xl border border-white/10 bg-zinc-950 p-8"
+          className="min-w-0 w-full max-w-full rounded-2xl border border-white/10 bg-zinc-950 p-5 sm:p-8"
         >
-
-          <div>
+          <div className="min-w-0">
             <label
               htmlFor="fullName"
               className="mb-2 block text-sm font-bold"
@@ -100,17 +102,17 @@ export default function RegistrationForm() {
               type="text"
               placeholder="Andrés Rodríguez"
               {...register("fullName")}
-              className="w-full rounded-lg border border-white/10 bg-black px-4 py-3 text-white outline-none transition focus:border-green-400"
+              className="block w-full min-w-0 max-w-full rounded-lg border border-white/10 bg-black px-4 py-3 text-white outline-none transition focus:border-green-400"
             />
 
             {errors.fullName && (
-              <p className="mt-2 text-sm text-red-400">
+              <p className="mt-2 break-words text-sm text-red-400">
                 {errors.fullName.message}
               </p>
             )}
           </div>
 
-          <div className="mt-6">
+          <div className="mt-6 min-w-0">
             <label
               htmlFor="email"
               className="mb-2 block text-sm font-bold"
@@ -123,17 +125,17 @@ export default function RegistrationForm() {
               type="email"
               placeholder="correo@ejemplo.com"
               {...register("email")}
-              className="w-full rounded-lg border border-white/10 bg-black px-4 py-3 text-white outline-none transition focus:border-green-400"
+              className="block w-full min-w-0 max-w-full rounded-lg border border-white/10 bg-black px-4 py-3 text-white outline-none transition focus:border-green-400"
             />
 
             {errors.email && (
-              <p className="mt-2 text-sm text-red-400">
+              <p className="mt-2 break-words text-sm text-red-400">
                 {errors.email.message}
               </p>
             )}
           </div>
 
-          <div className="mt-6">
+          <div className="mt-6 min-w-0">
             <label
               htmlFor="platform"
               className="mb-2 block text-sm font-bold"
@@ -143,11 +145,10 @@ export default function RegistrationForm() {
 
             <select
               id="platform"
-              defaultValue=""
               {...register("platform")}
-              className="w-full rounded-lg border border-white/10 bg-black px-4 py-3 text-white outline-none transition focus:border-green-400"
+              className="block w-full min-w-0 max-w-full rounded-lg border border-white/10 bg-black px-4 py-3 text-white outline-none transition focus:border-green-400"
             >
-              <option value="" disabled>
+              <option value="">
                 Selecciona una plataforma
               </option>
 
@@ -171,22 +172,22 @@ export default function RegistrationForm() {
             )}
           </div>
 
-          <div className="mt-6">
-            <label className="flex items-start gap-3 text-sm text-zinc-400">
+          <div className="mt-6 min-w-0">
+            <label className="flex min-w-0 items-start gap-3 text-sm text-zinc-400">
               <input
                 type="checkbox"
                 {...register("privacy")}
-                className="mt-1 h-4 w-4 accent-green-400"
+                className="mt-1 h-4 w-4 shrink-0 accent-green-400"
               />
 
-              <span>
+              <span className="min-w-0 break-words">
                 Acepto la política de privacidad y el tratamiento
                 de mis datos para completar el prerregistro.
               </span>
             </label>
 
             {errors.privacy && (
-              <p className="mt-2 text-sm text-red-400">
+              <p className="mt-2 break-words text-sm text-red-400">
                 {errors.privacy.message}
               </p>
             )}
@@ -194,17 +195,16 @@ export default function RegistrationForm() {
 
           <button
             type="submit"
-            className="mt-8 w-full rounded-lg bg-green-400 px-6 py-4 font-black text-black transition hover:bg-green-300"
+            className="mt-8 w-full max-w-full rounded-lg bg-green-400 px-4 py-4 text-sm font-black text-black transition hover:bg-green-300 sm:px-6 sm:text-base"
           >
             COMPLETAR PRERREGISTRO
           </button>
 
           {submitted && (
-            <div className="mt-6 rounded-lg border border-green-400/30 bg-green-400/10 p-4 text-center text-sm font-bold text-green-400">
+            <div className="mt-6 break-words rounded-lg border border-green-400/30 bg-green-400/10 p-4 text-center text-sm font-bold text-green-400">
               PRERREGISTRO COMPLETADO CORRECTAMENTE
             </div>
           )}
-
         </form>
 
       </div>

@@ -1,0 +1,90 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ResponsiveHeader from "../components/ResponsiveHeader.tsx";
+import Footer from "../components/Footer.astro";
+
+type PrivacySection = {
+  title: string;
+  content: string;
+};
+
+const privacySections: PrivacySection[] = [
+  {
+    title: "1. Información que recopilamos",
+    content:
+      "Durante el prerregistro podemos solicitar información básica como nombre, correo electrónico y plataforma de juego preferida.",
+  },
+  {
+    title: "2. Uso de la información",
+    content:
+      "Los datos proporcionados se utilizan únicamente para gestionar el prerregistro, comunicar novedades relacionadas con Void Ascendant y ofrecer información sobre futuras pruebas o recompensas.",
+  },
+  {
+    title: "3. Protección de los datos",
+    content:
+      "La información recopilada será tratada de forma responsable y se aplicarán medidas razonables para evitar accesos no autorizados.",
+  },
+  {
+    title: "4. Derechos del usuario",
+    content:
+      "El usuario podrá solicitar la modificación o eliminación de sus datos cuando el sistema de prerregistro se encuentre disponible públicamente.",
+  },
+  {
+    title: "5. Cambios en esta política",
+    content:
+      "Esta política podrá actualizarse conforme evolucione el proyecto. Cualquier cambio importante será comunicado mediante los canales oficiales.",
+  },
+];
+---
+
+<Layout
+  title="Política de privacidad | Void Ascendant"
+  description="Consulta la política de privacidad de Void Ascendant."
+>
+  <ResponsiveHeader client:load />
+
+  <main class="min-h-screen bg-black px-6 pb-24 pt-32 text-white">
+    <div class="mx-auto max-w-4xl">
+      <a
+        href="/"
+        class="text-sm font-bold text-green-400 transition hover:text-green-300"
+      >
+        ← VOLVER AL INICIO
+      </a>
+
+      <div class="mt-10">
+        <p class="mb-3 text-sm font-bold tracking-[0.4em] text-green-400">
+          INFORMACIÓN LEGAL
+        </p>
+
+        <h1 class="text-4xl font-black sm:text-6xl">
+          POLÍTICA DE PRIVACIDAD
+        </h1>
+
+        <p class="mt-5 leading-7 text-zinc-400">
+          Esta política describe de forma general cómo se manejará
+          la información proporcionada por los usuarios durante el
+          proceso de prerregistro de Void Ascendant.
+        </p>
+      </div>
+
+      <div class="mt-14 space-y-6">
+        {
+          privacySections.map((section) => (
+            <section class="rounded-2xl border border-white/10 bg-zinc-950 p-7">
+              <h2 class="text-xl font-black text-green-400">
+                {section.title}
+              </h2>
+
+              <p class="mt-4 leading-7 text-zinc-400">
+                {section.content}
+              </p>
+            </section>
+          ))
+        }
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
