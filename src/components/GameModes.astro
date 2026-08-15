@@ -1,0 +1,105 @@
+---
+type GameMode = {
+  number: string;
+  title: string;
+  description: string;
+  tag: string;
+};
+
+const gameModes: GameMode[] = [
+  {
+    number: "01",
+    title: "OPERACIÓN VACÍO",
+    description:
+      "Enfréntate a misiones de alto riesgo, elimina amenazas y descubre los secretos ocultos detrás del Vacío.",
+    tag: "PVE",
+  },
+  {
+    number: "02",
+    title: "RUPTURA",
+    description:
+      "Sobrevive a oleadas cada vez más peligrosas mientras mejoras tus capacidades y luchas por alcanzar la máxima puntuación.",
+    tag: "SUPERVIVENCIA",
+  },
+  {
+    number: "03",
+    title: "NEXO",
+    description:
+      "Forma un escuadrón y combina las habilidades de tus agentes para superar desafíos diseñados para el trabajo en equipo.",
+    tag: "COOPERATIVO",
+  },
+];
+---
+
+<section
+  id="modos"
+  class="bg-black px-6 py-24 text-white"
+>
+  <div class="mx-auto max-w-7xl">
+
+    <div class="mb-14">
+      <p
+        class="mb-3 text-sm font-bold tracking-[0.4em] text-green-400"
+      >
+        ELIGE TU MISIÓN
+      </p>
+
+      <h2
+        class="text-4xl font-black sm:text-6xl"
+      >
+        MODOS DE JUEGO
+      </h2>
+
+      <p
+        class="mt-5 max-w-2xl leading-7 text-zinc-400"
+      >
+        Explora diferentes formas de enfrentarte al Vacío.
+        Cada modo ofrece desafíos, objetivos y estrategias únicas.
+      </p>
+    </div>
+
+    <div class="grid gap-6 md:grid-cols-3">
+      {
+        gameModes.map((mode) => (
+          <article
+            class="group relative overflow-hidden rounded-2xl border border-white/10 bg-zinc-950 p-8 transition duration-300 hover:-translate-y-2 hover:border-green-400"
+          >
+            <div
+              class="mb-10 flex items-center justify-between"
+            >
+              <span
+                class="text-5xl font-black text-white/10 transition group-hover:text-green-400/30"
+              >
+                {mode.number}
+              </span>
+
+              <span
+                class="rounded-full border border-green-400/30 bg-green-400/10 px-3 py-1 text-xs font-bold tracking-widest text-green-400"
+              >
+                {mode.tag}
+              </span>
+            </div>
+
+            <h3
+              class="text-2xl font-black transition group-hover:text-green-400"
+            >
+              {mode.title}
+            </h3>
+
+            <p
+              class="mt-4 leading-7 text-zinc-400"
+            >
+              {mode.description}
+            </p>
+
+            <div
+              class="mt-8 h-px w-12 bg-green-400 transition-all duration-300 group-hover:w-full"
+            >
+            </div>
+          </article>
+        ))
+      }
+    </div>
+
+  </div>
+</section>
