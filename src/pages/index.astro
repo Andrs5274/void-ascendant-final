@@ -1,0 +1,45 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Hero from "../components/Hero.astro";
+import Agents from "../components/Agents";
+
+const gameTitle = "VOID ASCENDANT";
+const subtitle = "EL VACÍO TE ESTÁ LLAMANDO";
+---
+
+<Layout
+  title={gameTitle}
+  description="Void Ascendant, una experiencia de acción y ciencia ficción."
+>
+  <Header />
+
+  <main>
+    <Hero
+      title={gameTitle}
+      subtitle={subtitle}
+    />
+
+    <Agents client:load />
+
+    <section
+      id="preregistro"
+      class="flex min-h-screen items-center justify-center px-6"
+    >
+      <div class="text-center">
+        <p class="mb-3 text-sm font-bold tracking-[0.3em] text-green-400">
+          ÚNETE AL VACÍO
+        </p>
+
+        <h2 class="text-4xl font-black sm:text-5xl">
+          PRERREGISTRO
+        </h2>
+
+        <p class="mx-auto mt-4 max-w-xl text-zinc-400">
+          Regístrate para recibir noticias, recompensas exclusivas
+          y acceso a futuras pruebas de Void Ascendant.
+        </p>
+      </div>
+    </section>
+  </main>
+</Layout>

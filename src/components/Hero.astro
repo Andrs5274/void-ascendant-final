@@ -1,0 +1,40 @@
+---
+interface Props {
+  title: string;
+  subtitle: string;
+}
+
+const { title, subtitle } = Astro.props;
+---
+
+<section
+  id="inicio"
+  class="flex min-h-screen items-center justify-center px-6 pt-24"
+>
+  <div class="text-center">
+    <p
+      class="mb-4 text-sm font-bold tracking-[0.4em] text-green-400"
+    >
+      PROYECTO FINAL
+    </p>
+
+    <h1
+      class="text-5xl font-black tracking-tight sm:text-7xl lg:text-8xl"
+    >
+      {title}
+    </h1>
+
+    <p
+      class="mt-5 text-lg text-zinc-400 sm:text-xl"
+    >
+      {subtitle}
+    </p>
+
+    <a
+      href="#preregistro"
+      class="mt-8 inline-block rounded-lg bg-green-400 px-7 py-3 font-bold text-black transition hover:bg-green-300"
+    >
+      PRERREGÍSTRATE
+    </a>
+  </div>
+</section>
